@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Thomas Webbyrå{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Webbdesign, domän och webbhotell – i ett paket.{% endblock %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  {% include "partials/navbar.html" %}
+
+  <main class="container">
+    {% include "partials/messages.html" %}
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/footer.html" %}
+</body>
+</html>
