@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Kontakt - Thomas Webbyrå{% endblock %}
+
+{% block content %}
+<h1>Kontakt</h1>
+
+<form method="post" class="form">
+    {% csrf_token %}
+
+    {% for field in form %}
+    <div class="field">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+            <div class="error">{{ field.errors|striptags }}</div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <button class="btn" type="submit">Skicka</button>
+</form>
+{% endblock %}

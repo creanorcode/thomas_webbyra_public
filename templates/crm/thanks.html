@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Tack! - Thomas Webbyrå{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Tack!</h1>
+  <p>Ditt ärende är mottaget. Jag återkommer så snart jag kan.</p>
+  <a class="btn" href="{% url 'pages:home' %}">Till startsidan</a>
+</div>
+{% endblock %}
