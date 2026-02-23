@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Paket - Thomas Webbyrå{% endblock %}
+
+{% block content %}
+<h1>Paket</h1>
+<div class="grid">
+    <div class="card">
+        <h2>Start</h2>
+        <p>För enkel närvaro.</p>
+        <p><strong>Från x kr</strong></p>
+        <a class="btn" href="{% url 'crm:quote' %}">Offert</a>
+    </div>
+
+    <div class="card">
+        <h2>Business</h2>
+        <p>För företag och privatpersoner som vill växa.</p>
+        <p><strong>Från x kr</strong></p>
+        <a class="btn" href="{% url 'crm:quote' %}">Offert</a>
+    </div>
+
+    <div class="card">
+        <h2>Premium</h2>
+        <p>Full setup + extra stöd.</p>
+        <p><strong>Från x kr</strong></p>
+        <a class="btn" href="{% url 'crm:quote' %}">Offert</a>
+    </div>
+</div>
+{% endblock %}

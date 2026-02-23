@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Thomas Webbyrå - Webbdesign, domän och webbhotell{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Webbdesign, domän och webbhotell - i ett paket.</h1>
+    <p>Jag bygger moderna hemsidor i Django och tar hand om allt det tekniska - så att du akn fokusera på din verksamhet.</p>
+    <div>
+        <a class="btn" href="{% url 'crm:quote' %}">Be om offert</a>
+        <a class="btn btn--ghost" href="{% url 'pages:packages' %}">Se paket</a>
+    </div>
+</section>
+
+<section class="grid">
+    <div class="card">
+        <h2>Webbdesign</h2>
+        <p>Grafik, layout och responsiv hemsida. Byggd för att kännas modern och tydlig.</p>
+    </div>
+    <div class="card">
+        <h2>Webbhotell</h2>
+        <p>Drift, SSL och stabil uppsättning. Jag hjälper dig hela vägen.</p>
+    </div>
+    <div class="card">
+        <h2>Domän</h2>
+        <p>Registrering och hantering av DNS - du slipper krånglet.</p>
+    </div>
+</section>
+{% endblock %}
