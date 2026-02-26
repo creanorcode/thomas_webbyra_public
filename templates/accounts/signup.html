@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Skapa konto - Thomas Webbyrå{% endblock %}
+
+{% block content %}
+<h1>Skapa konto</h1>
+
+<form method="post" class="form">
+  {% csrf_token %}
+
+  {% for field in form %}
+    <div class="field">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}
+          <div class="muted">{{ field.help_text|safe }}</div>
+        {% endif %}
+        {% if field.errors %}
+          <div class="error">{{ field.errors|striptags }}</div>
+        {% endif %}
+    </div>
+  {% endfor %}
+
+  <button class="btn" type="submit">Skapa konto</button>
+</form>
+
+<p class="muted">Har du redan ett konto? <a href="{% url 'accounts:login' %}">Logga in</a></p>
+{% endblock %}
