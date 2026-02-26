@@ -3,6 +3,25 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 
+from .forms import CustomerSignupForm
+
+
+def signup_view(request):
+    if request.user.is_authenticated:
+        return redirect("portal:dashboard")
+
+    form = CustomerSignupForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Välkommen! Ditt konto är skapat.")
+            return redirect("portal:dashboard")
+        messages.error(request, "Det gick inte att skapa kontot. Kontrollera fälten och försök igen.")
+
+    return render(request, "accounts/signup.html", {"form": form})
+
+
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("portal:dashboard")
@@ -17,6 +36,7 @@ def login_view(request):
         messages.error(request, "Inloggningen misslyckades. Kontrollera uppgifter och försök igen.")
 
     return render(request, "accounts/login.html", {"form": form})
+
 
 def logout_view(request):
     logout(request)
