@@ -14,6 +14,7 @@
         <a class="pill pill--muted" href="{% url 'accounts:logout' %}">Logga ut</a>
       {% else %}
         <a class="pill" href="{% url 'accounts:login' %}">Logga in</a>
+        <a class="pill pill--muted" href="{% url 'accounts:signup' %}">Skapa konto</a>
       {% endif %}
     </div>
   </div>
