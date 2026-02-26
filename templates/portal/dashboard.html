@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Min sida - Thomas Webbyrå{% endblock %}
+
+{% block content %}
+<h1>Min sida</h1>
+
+<div class="grid">
+    <div class="card">
+        <h2>Dina offertförfrågningar</h2>
+        {% if quotes %}
+            <ul>
+              {% for q in quotes %}
+                <li>
+                    <strong>{{ q.get_service_display }}</strong> - {{ q.get_status_display }}
+                    <div class="muted">{{ q.created_at|date:"Y-m-d H:i" }}</div>
+                </li>
+              {% endfor %}
+            </ul>
+        {% else %}
+            <p class="muted">Inga offertförfrågningar kopplade till ditt konto ännu.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h2>Dina kontaktärenden</h2>
+        {% if contacts %}
+            <ul>
+              {% for c in contacts %}
+                <li>
+                    <strong>{{ c.subject }}</strong> - {{ c.get_status_display }}
+                    <div class="muted">{{ c.created_at|date:"Y-m-d H:i" }}</div>
+                </li>
+              {% endfor %}
+            </ul>
+        {% else %}
+            <p class="muted">Inga kontaktärenden kopplade till ditt konto ännu.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
