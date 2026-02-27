@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Offert - Detaljer{% endblock %}
+
+{% block content %}
+<a class="btn btn--ghost" href="{% url 'portal:dashboard' %}">← Tillbaka</a>
+
+<div class="card">
+    <h1>Offertförfrågan</h1>
+
+    <p><strong>Status:</strong> {{ quote.get_status_display }}</p>
+    <p class="muted">
+        Skapad: {{ quote.created_at|date:"Y-m-d H:i" }}
+        {% if quote.status_changed_at %} • Senast ändrad: {{ quote.status_changed_at|date:"Y-m-d H:i" }}{% endif %}
+        {% if quote.sent_at %} • Skickad: {{ quote.sent_at|date:"Y-m-d H:i" }}{% endif %}
+    </p>
+
+    <hr>
+
+    <p><strong>Namn:</strong> {{ quote.name }}</p>
+    <p><strong>E-post:</strong> {{ quote.email }}</p>
+    {% if quote.phone %}<p><strong>Telefon:</strong> {{ quote.phone }}</p>{% endif %}
+    {% if quote.company %}<p><strong>Företag:</strong> {{ quote.company }}</p>{% endif %}
+
+    <p><strong>Tjänst:</strong> {{ quote.get_service_display }}</p>
+    <p><strong>Budget:</strong> {{ quote.get_budget_display }}</p>
+    {% if quote.deadline %}<p><strong>Deadline:</strong> {{ quote.deadline }}</p>{% endif %}
+
+    <h2>Beskrivning:</h2>
+    <p style="white-space: pre-wrap;">{{ quote.description }}</p>
+</div>
+{% endblock %}

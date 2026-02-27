@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Kontakt - Detaljer{% endblock %}
+
+{% block content %}
+<a class="btn btn--ghost" href="{% url 'portal:dashboard' %}">← Tillbaka</a>
+
+<div class="card">
+    <h1>Kontaktärenden</h1>
+
+    <p><strong>Status:</strong> {{ contact.get_status_display }}</p>
+    <p class="muted">
+        Skapad: {{ contact.created_at|date:"Y-m-d h:i" }}
+        {% if contact.status_changed_at %} • Senast ändrad: {{ contact.status_changed_at|date:"Y-m-d H:i" }}{% endif %}
+    </p>
+
+    <hr>
+
+    <p><strong>Ämne:</strong> {{ contact.subject }}</p>
+    <p><strong>Namn:</strong> {{ contact.name }}</p>
+    <p><strong>E-post:</strong> {{ contact.email }}</p>
+
+    <h2>Meddelande:</h2>
+    <p style="white-space: pre-wrap;">{{ contact.message }}</p>
+</div>
+{% endblock %}
