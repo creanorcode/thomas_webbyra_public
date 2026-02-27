@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Något gick fel – Thomas Webbyrå{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>500 – Något gick fel</h1>
+  <p>Det blev ett fel på servern. Försök igen om en stund.</p>
+  <a class="btn" href="{% url 'pages:home' %}">Till startsidan</a>
+</div>
+{% endblock %}
