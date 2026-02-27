@@ -11,7 +11,9 @@
             <ul>
               {% for q in quotes %}
                 <li>
+                    <a href="{% url 'portal:quote_detail' q.id %}">
                     <strong>{{ q.get_service_display }}</strong> - {{ q.get_status_display }}
+                    </a>
                     <div class="muted">{{ q.created_at|date:"Y-m-d H:i" }}</div>
                 </li>
               {% endfor %}
@@ -27,7 +29,9 @@
             <ul>
               {% for c in contacts %}
                 <li>
+                    <a href="(% url 'portal:contact_detail' c.id %)">
                     <strong>{{ c.subject }}</strong> - {{ c.get_status_display }}
+                    </a>
                     <div class="muted">{{ c.created_at|date:"Y-m-d H:i" }}</div>
                 </li>
               {% endfor %}
