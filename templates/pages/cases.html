@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Case – Thomas Webbyrå{% endblock %}
+{% block meta_description %}Exempel på projekt och lösningar byggda i Django: CRM, kundportal och snabb frontend.{% endblock %}
+
+{% block content %}
+<h1>Case</h1>
+<div class="stack">
+  {% for c in cases %}
+    <div class="card">
+      <h2>{{ c.title }}</h2>
+      <p>{{ c.summary }}</p>
+      <a class="btn btn--ghost" href="{% url 'pages:case_detail' c.slug %}">Se case</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

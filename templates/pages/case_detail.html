@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ case.title }} – Case{% endblock %}
+{% block meta_description %}{{ case.summary }}{% endblock %}
+
+{% block content %}
+<a class="btn btn--ghost" href="{% url 'pages:cases' %}">← Tillbaka</a>
+<div class="card">
+  <h1>{{ case.title }}</h1>
+  <p>{{ case.summary }}</p>
+  <h2>Teknik</h2>
+  <ul>
+    <li>Django + templates</li>
+    <li>CRM: kontakt/offert sparas i admin</li>
+    <li>Kundportal med behörighet</li>
+  </ul>
+</div>
+{% endblock %}
