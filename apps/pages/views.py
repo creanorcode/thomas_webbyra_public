@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 
 
 def home(request):
@@ -31,3 +32,23 @@ def packages(request):
 
 def about(request):
     return render(request, "pages/about.html")
+
+
+CASES = [
+    {
+        "slug": "thomas-webbyra",
+        "title": "Thomas Webbyrå - fullstack byråplattform",
+        "summary": "Django-plattform med CRM, kundportal och admin-workflow.",
+    },
+]
+
+
+def cases(request):
+    return render(request, "pages/cases.html", {"cases": CASES})
+
+
+def case_detail(request, slug: str):
+    case = next((c for c in CASES if c ["slug"] == slug), None)
+    if not case:
+        raise Http404
+    return render(request, "pages/case_detail.html", {"case": case})
