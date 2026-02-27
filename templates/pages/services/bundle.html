@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Webbdesign i Django - Thomas Webbyrå{% endblock %}
+{% block meta_description %}Webbdesign med modern, mobilanpassad layout. Byggd i Django för prestanda, säkerhet och långsiktig drift.{% endblock %}
+
+{% block content %}
+<h1>Bundle</h1>
+<div class="card">
+    <p>Jag bygger snabba, moderna och tydliga hemsidor - med design som känns professionell och en teknikstack som håller.</p>
+    <ul>
+        <li>Responsiv layout (mobil, surfplatta, desktop)</li>
+        <li>Struktur för SEO (rubriker, metadata, hastighet)</li>
+        <li>Kontakt/offertflöde kopplat till admin</li>
+    </ul>
+    <a class="btn" href="{% url 'crm:quote' %}">Be om offert</a>
+</div>
+{% endblock %}
