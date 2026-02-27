@@ -52,7 +52,7 @@ class QuoteRequestAdmin(admin.ModelAdmin):
         "budget",
         "status",
         "assigned_to",
-        "sent_to",
+        "sent_at",
         "status_changed_at",
     )
 
