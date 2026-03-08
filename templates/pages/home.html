@@ -3,26 +3,77 @@
 
 {% block content %}
 <section class="hero">
-    <h1>Webbdesign, domän och webbhotell - i ett paket.</h1>
-    <p>Jag bygger moderna hemsidor i Django och tar hand om allt det tekniska - så att du akn fokusera på din verksamhet.</p>
     <div>
-        <a class="btn" href="{% url 'crm:quote' %}">Be om offert</a>
-        <a class="btn btn--ghost" href="{% url 'pages:packages' %}">Se paket</a>
+        <h1>Thomas Webbyrå</h1>
+        <p class="lead">
+            Webbdesign, domän och webbhotell - i ett paket. Byggt i Django för fart, säkerhet och långsiktig drift.
+        </p>
+        
+        <div class="hero__actions">
+            <a class="btn" href="{% url 'crm:quote' %}">Be om offert</a>
+            <a class="btn btn--ghost" href="{% url 'pages:service_bundle' %}">Se tjänster</a>
+        </div>
+
+        <div class="usp-row">
+            <div class="usp">✅ Snabb leverans</div>
+            <div class="usp">✅ Mobilanpassat</div>
+            <div class="usp">✅ Drift & support</div>
+        </div>
+    </div>
+
+    <div class="hero__card card">
+        <h2>Så går det till</h2>
+        <ol class="steps">
+            <li>Du beskriver behovet</li>
+            <li>Jag tar fram förslag + offert</li>
+            <li>Vi bygger, lanserar och följer upp</li>
+        </ol>
     </div>
 </section>
 
-<section class="grid">
-    <div class="card">
-        <h2>Webbdesign</h2>
-        <p>Grafik, layout och responsiv hemsida. Byggd för att kännas modern och tydlig.</p>
+<section class="section">
+    <h2>Paket</h2>
+    <div class="pricing">
+        <div class="price card">
+            <h3>Bas</h3>
+            <p class="price__tag">Från 4 900 kr</p>
+            <ul>
+                <li>One-page eller enkel site</li>
+                <li>Mobilanpassad design</li>
+                <li>Kontaktformulär</li>
+            </ul>
+            <a class="btn btn--ghost" href="{% url 'crm:quote' %}">Intresserad</a>
+        </div>
+
+        <div class="price card price--featured">
+            <h3>Standard</h3>
+            <p class="price__tag">Från 9 900 kr</p>
+            <ul>
+                <li>Fler sidor + tjänstesidor</li>
+                <li>SEO grund (meta/sitemap)</li>
+                <li>Offertflöde + admin</li>
+            </ul>
+            <a class="btn" href="{% url 'crm:quote' %}">Be om offert</a>
+        </div>
+
+        <div class="price card">
+            <h3>Premium</h3>
+            <p class="price__tag">Från 19 900 kr</p>
+            <ul>
+                <li>Case/portfolio + struktur</li>
+                <li>Utökad portal/automatik</li>
+                <li>Prioriterad support</li>
+            </ul>
+            <a class="btn btn--ghost" href="{% url 'crm:quote' %}">Kontakta mig</a>
+        </div>
     </div>
-    <div class="card">
-        <h2>Webbhotell</h2>
-        <p>Drift, SSL och stabil uppsättning. Jag hjälper dig hela vägen.</p>
+</section>
+
+<section class="cta-band">
+    <div>
+        <h2>Vill du ha en snabb offert</h2>
+        <p class="muted">Beskriv kort vad du behöver så återkommer jag med ett förslag.</p>
     </div>
-    <div class="card">
-        <h2>Domän</h2>
-        <p>Registrering och hantering av DNS - du slipper krånglet.</p>
-    </div>
+    <a class="btn" href="{% url 'crm:quote' %}">Starta offert</a>
 </section>
 {% endblock %}
